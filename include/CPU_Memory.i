@@ -169,17 +169,17 @@
         .if (.loword(source) >= .loword(dest))
           ldx     #.loword(source)
           ldy     #.loword(dest)
-          mvn     ^(dest), ^(source)
+          mvn     #^(source), #^(dest)
         .else
           ldx     #.loword(source)+length-1
           ldy     #.loword(dest)+length-1
-          mvp     ^(dest), ^(source)
+          mvp     #^(source), #^(dest)
         .endif
       .else
         ;Addresses not known - mvn is the best bet
           ldx     #.loword(source)
           ldy     #.loword(dest)
-          mvn     ^(dest), ^(source)
+          mvn     #^(source), #^(dest)
       .endif
     .else
       ;Addresses in registers - use mvn
