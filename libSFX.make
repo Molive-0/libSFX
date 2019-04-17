@@ -224,4 +224,4 @@ $(filter %.brr,$(derived_files)): %.brr : %.wav
 
 $(filter %.lz4,$(derived_files)) : %.lz4 : %
 	$(lz4_compress) $(lz4_flags) $* $@
-@touch $@
+	@touch $@
