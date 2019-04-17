@@ -155,12 +155,9 @@ EmptyVector:
   SNES jumps here at the raster line registered with the IRQ_set macro
 */
 IRQVector:
-        jml     :+                      ;Jump to fast mirror
-:       push
-        RW a8
-        lda     f:TIMEUP                ;Acknowledge IRQ
         jsl     SFX_irq_jml             ;Call trampoline
-        pull
+		RW a8
+        lda     f:TIMEUP				;Acknowledge IRQ
         rti
 
 
